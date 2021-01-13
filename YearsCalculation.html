@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Years Calculation</title>
+</head>
+
+<body>
+    <span>Enter Age Year</span>
+    <input type="number" id="age_year" min="1" style="width:400px" placeholder="Enter Age" /><br><br>
+    <span>Enter Age Month</span>
+    <input type="number" id="age_month" min="1" max="11" placeholder="enter month between 1 to 11" style="width:400px" /><br><br>
+    <button onclick="ageconverter()">Convert to dog years</button>
+
+
+    <script>
+        function ageconverter() {
+            let ageyear = parseInt(document.getElementById("age_year").value);
+            let agemonth = parseInt(document.getElementById("age_month").value);
+
+            let actualYear = (ageyear * 12) + agemonth;
+            console.log(actualYear);
+            let final;
+
+            if (ageyear >= 0 && agemonth >= 0) {
+                if (actualYear < 25) {
+
+                    final = actualYear * 10.5;
+                    window.alert(Math.floor(final / 12) + "Year " + Math.round(((final / 12) % 1) * 12) + "Month ");
+
+                } else {
+
+                    final = ((actualYear - 24) * 4) + (24 * 10.5);
+                    window.alert(Math.floor(final / 12) + "Year " + Math.round(((final / 12) % 1) * 12) + "Month ");
+
+                }
+            } else {
+
+                window.alert("Invalid Age");
+
+            }
+
+        }
+    </script>
+</body>
+
+</html>
